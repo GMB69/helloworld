@@ -1,54 +1,59 @@
 package OOP2;
 
+
 import java.util.Scanner;
 
 public class Bankkonto {
-    String vname;
-    String nname;
-    int kontoNr;
-    double kontostandAnfang;
-    double kontostandJetzt;
-    int limit;
+    private String vorname;
+    private String nachname;
+    private String kontonummer;
+    private double kontostand;
+    private double limit;
 
-    Bankkonto(String vname, String nname, int kontoNr, double kontostandAnfang, int limit) {
-        this.vname = vname;
-        this.nname = nname;
-        this.kontoNr = kontoNr;
-        this.kontostandAnfang = (double) kontostandAnfang;
+
+    public Bankkonto(String vorname, String nachname, String kontonummer, double kontostand, double limit) {
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.kontonummer = kontonummer;
+        this.kontostand = kontostand;
         this.limit = limit;
     }
 
-    public double einzahlung() {
-        System.out.println();
-        System.out.println("Bitte geben Sie den Betrag ein, den EINZAHLEN wollen! Bestätigen Sie mit der Eingabetaste.");
-        Scanner scanner = new Scanner(System.in);
-        double einzahlung1 = scanner.nextInt();
-        return einzahlung1;
+    // Getter-Methoden
+    public String getVorname() {
+        return vorname;
     }
 
-    public double auszahlung() {
-        System.out.println("Bitte geben Sie den Betrag ein, den ABHEBEN wollen! Bestätigen Sie mit der Eingabetaste.");
-        Scanner scanner = new Scanner(System.in);
-        double auszahlung1 = scanner.nextInt();
-        if (kontostandAnfang - auszahlung1 >= limit) {
-            return (double) (auszahlung1);
+    public String getNachname() {
+        return nachname;
+    }
+
+    public String getKontonummer() {
+        return kontonummer;
+    }
+
+    public double getKontostand() {
+        return kontostand;
+    }
+
+    public double getLimit() {
+        return limit;
+    }
+
+    // Methoden
+    public void einzahlen(double betrag) {
+        kontostand += betrag;
+    }
+
+    public boolean auszahlen(double betrag) {
+        if (betrag <= kontostand - limit) {
+            kontostand -= betrag;
+            return true;
         } else {
-            System.out.println("Dieser Betrag übersteigt das verfügbare Limit!");
-            return 0;
+            return false;
         }
     }
-
-    public double kontostandHöher() {
-        return (double) (kontostandAnfang + einzahlung());
-    }
-
-    public double kontostandTiefer() {
-        return (double) (kontostandAnfang - auszahlung());
-    }
-
-    public double verfügbar() {
-        if (einzahlung() > 0) return (double) (kontostandHöher() - limit);
-        else if (auszahlung() > 0) return (double) (kontostandTiefer() - limit);
-        else return kontostandAnfang - limit;
+    public String toString() {
+        return "Kontoinhaber: " + vorname + " " + nachname + ", Kontonummer: " + kontonummer + ", Kontostand: " + kontostand + "€";
     }
 }

@@ -1,37 +1,70 @@
 package OOP2;
 
+
 import java.util.Scanner;
-import java.util.regex.Pattern;
+
 
 public class BankApp {
 
-    public static void main(String[] args) {
-        Bankkonto georg = new Bankkonto("Georg", "Brandenburg", 821224, 767, -1000);
 
+    public static void main(String[] args) {
+        Bankkonto konto = new Bankkonto("Georg", "Berger", "AT12 3456 7890 1234",1000, -1000);
         Scanner scanner = new Scanner(System.in);
+        boolean beenden = false;
+
+        while(!beenden) {
         System.out.println();
-        System.out.println("Guten Tag! Wollen Sie ");
+        System.out.println("Guten Tag! Was möchten Sie tun? ");
         System.out.println();
-        System.out.println("ABHEBEN: Drücken Sie (a)");
-        System.out.println("EINZAHLEN: Drücken Sie (e)");
-        System.out.println("KONTOSTAND: Drücken Sie (k)?");
+        System.out.println("EINZAHLEN: Drücken Sie (1)");
+        System.out.println("AUSZAHLEN: Drücken Sie (2)");
+        System.out.println("KONTOSTAND ABFRAGEN: Drücken Sie (3)?");
+        System.out.println("ABBRECHEN: Drücken Sie (4)");
         System.out.println();
         System.out.println("Bitte bestätigen Sie ihre Eingabe mit der Eingabetaste!");
 
+        int auswahl = scanner.nextInt();
+        System.out.println(konto);
 
-        String kundenwunsch = scanner.nextLine();
+        switch (auswahl) {
+            case 1:
+                System.out.println();
+                System.out.println("Bitte geben Sie den Betrag ein, den Sie EINZAHLEN wollen! Bestätigen Sie mit der Eingabetaste.");
+                double einzahlenBetrag = scanner.nextDouble();
+                konto.einzahlen(einzahlenBetrag);
+                System.out.println("Einzahlung erfolgreich! Neuer Kontostand: " + konto.getKontostand() + " €");
+                beenden = true;
+                break;
 
-        System.out.println("Kontoinhaber: " + georg.vname + " " + georg.nname + " Kontonummer: " + georg.kontoNr + " Überziehungsrahmen: " + georg.limit + " EURO");
-        System.out.println();
-        if (kundenwunsch.equals("a")) {
-            System.out.println("Alter Kontostand: " + georg.kontostandAnfang + " EURO, Behebung: " + georg.auszahlung() + " EURO, Neuer Kontostand: " + georg.kontostandTiefer() + " EURO, Verfügbar: " + georg.verfügbar() + " EURO,");
-            System.out.println();
-        } else if (kundenwunsch.equals("e")) {
-            System.out.println("Alter Kontostand: " + georg.kontostandAnfang + " Einzahlung: " + georg.einzahlung() + " Neuer Kontostand: " + georg.kontostandHöher() + " Verfügbar: " + georg.verfügbar());
-            System.out.println();
-        } else if (kundenwunsch.equals("k")) {
-            System.out.println("Kontostand: " + georg.kontostandAnfang + " Verfügbar: " + georg.verfügbar());
-            System.out.println();
+            case 2:
+                System.out.println();
+                System.out.println("Bitte geben Sie den Betrag ein, den Sie ABHEBEN wollen! Bestätigen Sie mit der Eingabetaste.");
+                double auszahlenBetrag = scanner.nextDouble();
+
+                if (konto.auszahlen(auszahlenBetrag)) {
+                    System.out.println("Auszahlung erfolgreich! Neuer Kontostand: " + konto.getKontostand() + " €");
+                    beenden = true;
+                } else {
+                    System.out.println("Auszahlung fehlgeschlagen. Limit überschritten!");
+            }
+             break;
+
+            case 3:
+                System.out.println("Aktueller Kontostand: " + konto.getKontostand() + "€");
+                beenden = true;
+                break;
+
+            case 4:
+                System.out.println("Programm wird beendet.");
+                beenden = true;
+                break;
+
+            default:
+                System.out.println("Ungültige Eingabe!");
+                break;
         }
+        }
+
+        scanner.close();
     }
 }
