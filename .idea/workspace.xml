@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a34499b-86ec-48bf-b8dd-0360ab4c5a73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="6a34499b-86ec-48bf-b8dd-0360ab4c5a73" name="Changes" comment="jetzt passt es, dank Mario und ChatGPT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/OOP2/BankApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OOP2/BankApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/OOP2/Bankkonto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OOP2/Bankkonto.java" afterDir="false" />
@@ -139,6 +138,14 @@
       <option name="presentableId" value="Default" />
       <updated>1674055325258</updated>
     </task>
+    <task id="LOCAL-00001" summary="jetzt passt es, dank Mario und ChatGPT">
+      <created>1683386923364</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683386923364</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,5 +170,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="jetzt passt es, dank Mario und ChatGPT" />
+    <option name="LAST_COMMIT_MESSAGE" value="jetzt passt es, dank Mario und ChatGPT" />
   </component>
 </project>

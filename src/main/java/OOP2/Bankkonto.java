@@ -1,8 +1,6 @@
 package OOP2;
 
 
-import java.util.Scanner;
-
 public class Bankkonto {
     private String vorname;
     private String nachname;
@@ -20,29 +18,17 @@ public class Bankkonto {
     }
 
     // Getter-Methoden
-    public String getVorname() {
-        return vorname;
-    }
-
-    public String getNachname() {
-        return nachname;
-    }
-
-    public String getKontonummer() {
-        return kontonummer;
-    }
-
-    public double getKontostand() {
-        return kontostand;
+        public double getKontostand() {
+                return kontostand;
     }
 
     public double getLimit() {
-        return limit;
+                return limit;
     }
 
     // Methoden
-    public void einzahlen(double betrag) {
-        kontostand += betrag;
+    public void einzahlen(double betrag) { // der Wert von einzahlenBetrag wird als Argument für den Parameter betrag übernommen;
+                kontostand += betrag;       //  kontostand der Instanz konto wird um betrag erhöht
     }
 
     public boolean auszahlen(double betrag) {
@@ -54,6 +40,6 @@ public class Bankkonto {
         }
     }
     public String toString() {
-        return "Kontoinhaber: " + vorname + " " + nachname + ", Kontonummer: " + kontonummer + ", Kontostand: " + kontostand + "€";
+        return "Kontoinhaber: " + vorname + " " + nachname + ", Kontonummer: " + kontonummer + ", Kontostand: " + kontostand + "€, Limit: " + limit;
     }
 }
